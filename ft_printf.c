@@ -23,6 +23,10 @@ int ft_checker(va_list ap, char sign)
 		count += ft_putstr_fd(va_arg(ap, char *), 1);
 	else if (sign == 'd' || sign == 'i')
 		count += ft_putnbr_fd(va_arg(ap, int), 1);
+	else if (sign == 'u')
+		count += ft_putnbrunsigned_fd(va_arg(ap, unsigned int), 1);
+	else if (sign == 'p')
+		count += ft_print(va_arg(ap, char *), 1);
 	else if (sign == 'x')
 		count += ft_hex(va_arg(ap, unsigned int), 0);
 	else if (sign == 'X')
@@ -63,6 +67,6 @@ int	main(void)
 	char *name;
 
 	name = "salut";
-	ft_printf("%c, salut %s %% %d %x", 'H', name, 100, 10000000);
+	ft_printf("%c, salut %s %% %d %x", 'H', name, 100, 10000000, name);
 	return (1);
 }

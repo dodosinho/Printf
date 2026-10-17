@@ -36,6 +36,17 @@ int	ft_putstr_fd(char *s, int fd)
 	return (ft_strlen(s));
 }
 
+int ft_putnbrunsigned_fd(unsigned int n, int fd)
+{
+    int count;
+
+    count = 0;
+	if (n >= 10)
+		count += ft_putnbrunsigned_fd(n / 10, fd);
+	count += ft_putchar_fd((n % 10) + '0', fd);
+    return (count);
+}
+
 int ft_putnbr_fd(int n, int fd)
 {
     int count;
@@ -74,4 +85,9 @@ int ft_hex(unsigned int  number, int i)
 		ft_putchar_fd(base1[number % 16], 1);
 	count++;
 	return (count);
+}
+
+int	ft_print(char *str, fd)
+{
+	
 }
