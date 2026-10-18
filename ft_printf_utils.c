@@ -87,7 +87,7 @@ int ft_hex(unsigned int  number, int i)
 	return (count);
 }
 
-int	ft_print(char *str, fd)
-{
+// int	ft_print(char *str, fd)
+// {
 	
-}
+// }
