@@ -41,7 +41,39 @@ int ft_hex(unsigned int  number, int i)
 	return (count);
 }
 
-// int	ft_print(char *str, fd)
-// {
-	
-// }
+
+int ft_hex_ptr(unsigned long long num)
+{
+	char	*base;
+	int		count;
+
+	base = "0123456789abcdef";
+	count = 0;
+	if (num >= 16)
+	{
+		count += ft_hex_ptr(num / 16);
+		count += ft_hex_ptr(num % 16);
+	}
+	else
+	{
+		count += write(1, &base[num], 1);
+	}
+	return (count);
+}
+
+int	ft_print_ptr(void *ptr)
+{
+	unsigned long long	adress;
+	int					count;
+
+	if (ptr == NULL)
+	{
+		write(1, "(nil)", 5);
+		return (5);
+	}
+	adress = (unsigned long long)ptr;
+	count = 0;
+	count += write(1, "0x", 2);
+	count += ft_hex_ptr(adress);
+	return (count);
+}

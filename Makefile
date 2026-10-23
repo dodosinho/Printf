@@ -2,7 +2,7 @@
 NAME		= libftprintf.a
 
 # 2. Les fichiers sources (.c) que tu as créés
-SRCS		= ft_printf.c ft_printf_utils.c
+SRCS		= ft_printf.c ft_printf_utils.c ft_printf_put.c
 
 # 3. Transformation automatique des noms .c en .o (fichiers objets compilés)
 OBJS		= $(SRCS:.c=.o)
