@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-int ft_hex(unsigned int  number, int i)
+int	ft_hex(unsigned int number, int i)
 {
 	char	*base0;
 	char	*base1;
@@ -41,8 +41,7 @@ int ft_hex(unsigned int  number, int i)
 	return (count);
 }
 
-
-int ft_hex_ptr(unsigned long long num)
+int	ft_hex_ptr(unsigned long long num)
 {
 	char	*base;
 	int		count;

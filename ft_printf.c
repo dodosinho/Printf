@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-int ft_checker(va_list ap, char sign)
+int	ft_checker(va_list ap, char sign)
 {
 	int	count;
 
@@ -33,7 +34,7 @@ int ft_checker(va_list ap, char sign)
 		count += ft_hex(va_arg(ap, unsigned int), 1);
 	else if (sign == '%')
 		count += ft_putchar_fd('%', 1);
-return (count);
+	return (count);
 }
 
 int	ft_printf(const char *format, ...)
@@ -51,7 +52,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%' && format[i + 1])
 		{
-			total_count +=ft_checker(ap, format[i + 1]);
+			total_count += ft_checker(ap, format[i + 1]);
 			i++;
 		}
 		else
@@ -62,11 +63,22 @@ int	ft_printf(const char *format, ...)
 	return (total_count);
 }
 
-int	main(void)
-{
-	char *name;
+// int	main(void)
+// {
+// 	int	n = 42;
+// 	int	total_vrai;
+// 	int	total_mien;
 
-	name = "salut";
-	ft_printf("%c, salut %s %% %d %x %p", 'H', name, 100, 10000000, name);
-	return (1);
-}
+// 	total_vrai = printf("printf -> voici le resultat : %c, %s, %d, 
+// %u, %p, %x, %X, %%\n", 
+// 		'A', "42", -42, 4294967295U, &n, 255, 255);
+
+// 	total_mien = ft_printf("printf -> voici le resultat : %c, %s, %d, 
+// %u, %p, %x, %X, %%\n", 
+// 		'A', "42", -42, 4294967295U, &n, 255, 255);
+
+// 	printf("Retour printf : %d\n", total_vrai);
+// 	printf("Retour ft_printf : %d\n", total_mien);
+
+// 	return (0);
+// }
